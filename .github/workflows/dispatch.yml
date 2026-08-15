@@ -1,0 +1,111 @@
+# إشارة البناء ومتابعة نتيجتها — القسمان 5 و14.2
+#
+# هذا هو الملف الوحيد الذي يعمل في مستودع المحتوى.
+# لا يقرأ محتوى ولا يكتب كوداً ولا يبني. يرسل إشارة، ثم يقرأ حالة Actions
+# العامة المرتبطة بنفس commit كي تصل النتيجة إلى الكاتب في هذا المستودع.
+#
+# السر BUILD_TRIGGER_TOKEN رمز دقيق الصلاحية:
+#   مستودع واحد (blog-build) · صلاحية واحدة (Actions: Read and write)
+#   لا يقرأ ملفاً، ولا يكتب كوداً، ولا يصل لبقية الحساب.
+#   أقصى ما يفعله من يسرقه: تشغيل بناء. راجع ARCHITECTURE.md § 6 في blog-build.
+#
+# لماذا workflow_dispatch لا repository_dispatch (تصحيح للقسم 6.1):
+#   repository_dispatch يتطلب contents:write — أي القدرة على تعديل قوالب
+#   البناء وميزانياته، وهو ما وُضع القسم 6.2 تحديداً لمنعه.
+#   أُثبت عملياً 2026-08-02: الاستدعاء رجع 403.
+name: dispatch
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/**'
+
+# لا صلاحية إطلاقاً للرمز الافتراضي — هذا العمل لا يحتاج شيئاً من هذا المستودع
+permissions: {}
+
+# حفظات متتابعة لا تُنتج إشارات متراكمة
+concurrency:
+  group: dispatch
+  cancel-in-progress: true
+
+jobs:
+  signal:
+    name: نشر المحتوى ومتابعة النتيجة
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: تجميع الحفظات السريعة
+        run: sleep 30
+
+      - name: تشغيل البناء في blog-build
+        env:
+          TOKEN: ${{ secrets.BUILD_TRIGGER_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "$TOKEN" ]; then
+            echo "::error::السر BUILD_TRIGGER_TOKEN غير مضبوط في إعدادات هذا المستودع."
+            exit 1
+          fi
+          payload=$(printf \
+            '{"ref":"main","inputs":{"reason":"دفعة محتوى %s","content_sha":"%s"}}' \
+            "$GITHUB_SHA" "$GITHUB_SHA")
+          code=$(curl -s -o /dev/null -w '%{http_code}' -X POST \
+            -H "Authorization: Bearer $TOKEN" \
+            -H 'Accept: application/vnd.github+json' \
+            https://api.github.com/repos/zeroone01z21-alt/datarecovery-blog-build/actions/workflows/build.yml/dispatches \
+            -d "$payload")
+          case "$code" in
+            204) echo "أُرسلت الإشارة." ;;
+            401) echo "::error::الرمز مرفوض — على الأرجح انتهت صلاحيته. جدِّده وحدِّث السر." ; exit 1 ;;
+            403) echo "::error::الرمز لا يملك صلاحية Actions:write على blog-build." ; exit 1 ;;
+            *)   echo "::error::تعذّر تشغيل البناء (HTTP $code)." ; exit 1 ;;
+          esac
+
+      - name: انتظار نتيجة النشر المرتبطة بهذه الحفظة
+        env:
+          TOKEN: ${{ secrets.BUILD_TRIGGER_TOKEN }}
+        run: |
+          set -euo pipefail
+          api="https://api.github.com/repos/zeroone01z21-alt/datarecovery-blog-build/actions/workflows/build.yml/runs?event=workflow_dispatch&branch=main&per_page=30"
+          deadline=$((SECONDS + 1200))
+          run_id=""
+          status=""
+          conclusion=""
+          run_url=""
+
+          while [ "$SECONDS" -lt "$deadline" ]; do
+            response=$(curl -fsS \
+              -H "Authorization: Bearer $TOKEN" \
+              -H 'Accept: application/vnd.github+json' \
+              "$api")
+            row=$(printf '%s' "$response" | jq -r --arg sha "$GITHUB_SHA" '
+              [.workflow_runs[] | select(.display_title | contains($sha))][0]
+              | if . == null then "" else [.id, .status, (.conclusion // ""), .html_url] | @tsv end
+            ')
+            if [ -n "$row" ]; then
+              IFS=$'\t' read -r run_id status conclusion run_url <<< "$row"
+              if [ "$status" = "completed" ]; then
+                break
+              fi
+            fi
+            sleep 10
+          done
+
+          if [ -z "$run_id" ] || [ "$status" != "completed" ]; then
+            echo "::error::انتهت المهلة قبل وصول نتيجة نشر هذه الحفظة. المحتوى محفوظ؛ اطلب من المالك فحص Actions."
+            exit 1
+          fi
+
+          {
+            printf '## نتيجة نشر المحتوى\n\n'
+            printf -- '- الحفظة: `%s`\n' "$GITHUB_SHA"
+            printf -- '- النتيجة: **%s**\n' "$conclusion"
+            printf -- '- [تفاصيل البناء والنشر](%s)\n' "$run_url"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$conclusion" != "success" ]; then
+            echo "::error::لم ينجح النشر. الموقع الحي بقي على آخر نسخة سليمة أو أن حالته تحتاج تحققًا؛ افتح رابط التفاصيل أعلاه ولا تكرر الحفظ."
+            exit 1
+          fi
+          echo "✅ نُشر المحتوى وتأكد ظهوره على الموقع الحي."
