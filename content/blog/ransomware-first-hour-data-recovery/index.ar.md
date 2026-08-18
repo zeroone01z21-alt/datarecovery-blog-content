@@ -3,7 +3,7 @@ title: "هجوم برامج الفدية: ماذا تفعل خلال الساع�
 description: "تعرّف على الخطوات الصحيحة بعد هجوم برامج الفدية، من عزل الأجهزة وحماية النسخ الاحتياطية إلى تقييم فك التشفير واستعادة البيانات بأمان."
 slug: "ransomware-first-hour-data-recovery"
 date: "2026-08-18T08:38:00+0300"
-draft: true
+draft: false
 archived: false
 categories:
   - "ransomware"
