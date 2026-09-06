@@ -4,7 +4,7 @@ meta_title: "test 12345"
 description: "test 12345test 12345test 12345test 12345test 12345"
 slug: "test-12345"
 date: "2026-09-06T23:13:00+03:00"
-draft: false
+draft: true
 archived: false
 categories:
   - "hard-drives"
