@@ -1,6 +1,7 @@
 ---
 title: "The 3-2-1 Backup Rule and How to Test It"
 description: "Three copies, two media, one off-site. What the rule means in practice, and how to confirm your backup actually restores rather than merely exists."
+focus_keyword: "3-2-1 backup rule"
 slug: "backup-3-2-1-rule"
 date: 2026-08-12T10:00:00+03:00
 draft: false

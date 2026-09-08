@@ -1,6 +1,7 @@
 ---
 title: "Ransomware Attack: What to Do in the First Hour"
 description: "Learn what to do after a ransomware attack: isolate affected systems, protect backups, assess decryption options, and recover critical data safely."
+focus_keyword: "ransomware attack"
 slug: "ransomware-first-hour-data-recovery"
 date: 2026-08-18T08:38:00+03:00
 draft: false
