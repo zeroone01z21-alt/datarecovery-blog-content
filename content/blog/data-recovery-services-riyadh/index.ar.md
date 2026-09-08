@@ -8,7 +8,7 @@ draft: false
 archived: false
 categories:
   - "data-protection"
-featured_image: "1.webp"
+featured_image: "data-recovery.webp"
 featured_image_alt: "استرجاع البيانات في الرياض"
 ---
 
