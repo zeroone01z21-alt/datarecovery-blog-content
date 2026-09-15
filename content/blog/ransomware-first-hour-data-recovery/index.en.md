@@ -142,6 +142,6 @@ Important steps include:
 
 When critical data is involved, preserving the affected storage devices before attempting multiple recovery methods can be important.
 
-**Osool Data Recovery** provides specialized services for ransomware incidents, including case assessment, evaluation of available decryption options, and data recovery from drives, servers, and other storage systems depending on the circumstances of each case.
+**Zero 2 One** provides specialized services for ransomware incidents, including case assessment, evaluation of available decryption options, and data recovery from drives, servers, and other storage systems depending on the circumstances of each case.
 
-If your files or business systems have been encrypted by ransomware, contact Osool Data Recovery for a technical assessment and to determine the most suitable recovery approach.
+If your files or business systems have been encrypted by ransomware, contact Zero 2 One for a technical assessment and to determine the most suitable recovery approach.
