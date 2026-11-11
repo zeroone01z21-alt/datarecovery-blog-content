@@ -5,6 +5,7 @@ description: "هل تعرض قرصك الصلب للتلف؟ تعرف على خ�
 focus_keyword: "استرجاع البيانات من الهارد ديسك التالف"
 slug: "recovery-data-damaged-hard-drive"
 date: "2026-09-14T21:07:00-07:00"
+lastmod: "2026-11-11T18:11:00+02:00"
 draft: false
 archived: false
 categories:
