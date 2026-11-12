@@ -4,7 +4,7 @@ meta_title: "الفرق بين الهجمات الإلكترونية والاخ�
 description: "وش الفرق بين الهجمات الإلكترونية والاختراق الأمني، مقال يوضح الفرق بينهم و أضرارهم ويعلمك شلون تحمي نفسك وبياناتك بكل بساطة."
 focus_keyword: "الفرق بين الهجمات الإلكترونية والاختراق الأمني"
 slug: "difference-between-cyberattacks-and-security-breach"
-date: "2026-11-05T18:45:00+02:00"
+date: "2026-11-10T18:45:00+02:00"
 draft: false
 archived: false
 categories:
