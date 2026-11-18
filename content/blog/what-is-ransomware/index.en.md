@@ -17,11 +17,11 @@ The next morning, your spreadsheets won't open. Your photos show an error. Every
 
 That's a ransomware attack. It hits hospitals, pipelines, airports, and car dealerships, but it also hits small offices and home computers every day. 
 
-You will know what ransomware is, how an attack unfolds, the warning signs to look for, what to do in the first hours, and how to protect yourself and your data. 
+You will know what ransomware is, how an attack unfolds, the warning signs to look for, what to do in the first hours, and how to protect yourself and your [data recovery riyadh](https://datarecovery-sa.com/). 
 
 ## What Is Ransomware?
 
-Ransomware is a type of malware that takes a victim's [data recovery riyadh](https://datarecovery-sa.com/) or device hostage until a ransom is paid. Most modern ransomware encrypts files so they become unreadable, then demands payment, usually in cryptocurrency, for the decryption key. 
+Ransomware is a type of malware that takes a victim's data or device hostage until a ransom is paid. Most modern ransomware encrypts files so they become unreadable, then demands payment, usually in cryptocurrency, for the decryption key. 
 
 ome variants lock the whole screen instead, and many now steal data before encrypting it, then threaten to publish it if the victim refuses to pay. This is known as double extortion.
 
@@ -72,7 +72,7 @@ Even once encryption has started, the attacker's movement can still be traced: m
 
 ## Ransomware Extensions
 
-![](ransomware-extensions.webp)
+![Ransomware Extensions](ransomware-extensions.webp)
 
 One of the quickest clues is the extension added to your encrypted files. Some ransomware families use a fixed extension, while others generate random ones, so treat this list as a starting point rather than a definitive guide.
 
