@@ -17,7 +17,7 @@ The next morning, your spreadsheets won't open. Your photos show an error. Every
 
 That's a ransomware attack. It hits hospitals, pipelines, airports, and car dealerships, but it also hits small offices and home computers every day. 
 
-You will know what ransomware is, how an attack unfolds, the warning signs to look for, what to do in the first hours, and how to protect yourself and your data.
+You will know what ransomware is, how an attack unfolds, the warning signs to look for, what to do in the first hours, and how to protect yourself and your data. 
 
 ## What Is Ransomware?
 
