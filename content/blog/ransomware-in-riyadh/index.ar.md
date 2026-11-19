@@ -326,3 +326,9 @@ featured_image_alt: "ما هو فيروس الفدية"
 ### ماذا يجب أن أفعل إذا أصيب جهازي؟ 
 
 افصل الجهاز فوراً عن الانترنت وأبلغ فريق الأمن السيراني فوراً. ويمكنك التواصل معنا لمعرفة الحلول الممكنة.
+
+اهم المصادر:
+
+- [No More Ransom – Crypto Sheriff](https://www.nomoreransom.org/crypto-sheriff.php)
+- [Emsisoft – Ransomware Decryption Tools](https://www.emsisoft.com/en/ransomware-decryption/)
+- [CISA – Ransomware Guide](https://www.cisa.gov/stopransomware/ransomware-guide)
