@@ -72,7 +72,7 @@ Even once encryption has started, the attacker's movement can still be traced: m
 
 ## Ransomware Extensions
 
-![Ransomware Extensions](ransomware-extensions.webp)
+![Ransomware Extensions by zero2one data recovery riyadh](ransomware-extensions.webp)
 
 One of the quickest clues is the extension added to your encrypted files. Some ransomware families use a fixed extension, while others generate random ones, so treat this list as a starting point rather than a definitive guide.
 
@@ -110,7 +110,7 @@ It depends. Powering off can stop the spread, but it also wipes evidence stored 
 
 ### Should You Pay the Ransom?
 
-Law enforcement agencies, including the FBI, advise against paying. Payment doesn't guarantee you'll get a working decryption key, it doesn't stop the attackers from leaking stolen data, and it funds the next attack. 
+Law enforcement agencies, including the government, advise against paying. Payment doesn't guarantee you'll get a working decryption key, it doesn't stop the attackers from leaking stolen data, and it funds the next attack. 
 
 The decision is ultimately yours, but it should be made with legal and security advice, never in a panic.
 
@@ -188,6 +188,8 @@ Recovery chances differ from one case to another, and the examination result is 
 ### What should you do now?
 
 Note that submitting a contact or assessment request is not the same as containing the attack. An active incident needs a response team inside your organization or a specialist incident response provider.
+
+[![by zero2one data recovery riyadh](ransomware-recovery-cybersecurity-guide.webp)](https://datarecovery-sa.com/en/ransomware/assessment/)
 
 ##  How to Avoid Ransomware Attack
 
